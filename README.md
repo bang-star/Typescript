@@ -71,3 +71,24 @@ let isSignIn: boolean = false
 - 디폴트 off(단, strict 옵션이 있으면 on이 디폴트)
 - off => string 과 같은 타입에 null 또는 undefined 할당 가능
 - on => any 와 각자 자신의 타입에만 할당 가능
+
+
+## Any & unknown
+
+- 타입스크립트의 타입 체크를 패스
+- 어느 타입이나 할당 가능하고, 어느 타입에도 할당 가능(never는 예외)
+- 깅력하지만 유의해서 사용해야 함.
+
+### nolmplicitAny
+
+- any와 관련된 tsconfig 설정
+- 디폴트는 off(단, strict 옵션이 있으면 on이 디폴트)
+- 타입 지정을 하지 않으면 any로 추론
+- off => any로의 추론을 허용
+- on => any로의 추론을 허용 X
+
+### unknown 
+
+- any와 비슷하지만 다른 타입
+- unknown 과 any 에만 할당 가능
+- "모르는 타입"의 경우 unknown 을 사용하는 것을 권장
