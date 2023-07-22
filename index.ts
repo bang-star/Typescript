@@ -1,3 +1,4 @@
-let foo;                    // => any
-let bar = "bar";            // => String
-let baz: string = "baz";    // => String
+let someNumber: number = undefined;
+
+let someString: string = null;
+

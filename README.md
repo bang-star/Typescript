@@ -58,3 +58,16 @@ let hexNumber: number = 0x3fee7;
 ```typescript
 let isSignIn: boolean = false
 ```
+
+## Null & undefined
+
+- 자바스크립트와 타입스크립트의 자료형이자 값
+- 자기 자신만을 값으로 가짐
+- 값이 할당되지 않으면 undefined, 의도저그로 빈 값을 할당하는 것은 null
+
+### StrictNullChecks
+
+- null, undefined 와 관련된 tsconfig 설정
+- 디폴트 off(단, strict 옵션이 있으면 on이 디폴트)
+- off => string 과 같은 타입에 null 또는 undefined 할당 가능
+- on => any 와 각자 자신의 타입에만 할당 가능
