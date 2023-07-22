@@ -21,4 +21,40 @@ let foo: string = "foo";
 
 - 타입을 직접 지정하지 않으면 타입스크립트가 알아서 타입을 추론한다.
 
+## 원시 타입(Primitives Type)
 
+자바스크립트의 7가지 원시 자료형을 기반으로 두는 타입
+
+- string
+- number
+- boolean
+- bigint
+- symbol
+- undefined
+- null
+
+
+### String => 문자열
+
+ - "word"와 같이 "" 또는 ''으로 표기
+
+```typescript
+let foo: string = "foo";
+let bar: string = "ba" + "r";
+let someString: string = `my name is ${name}`;
+```
+
+### Number => 숫자
+
+ - 부동 소수 방식의 숫자 타입
+
+```typescript
+let someNumber: Number = 10;
+let hexNumber: number = 0x3fee7;
+```
+
+### Boolean => 참/거짓
+
+```typescript
+let isSignIn: boolean = false
+```
