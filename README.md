@@ -238,3 +238,24 @@ let add: (a: number, b: number) => number = (a, b) => a + b;
 - 파라미터 뒤에 `=`를 통해 기본 값 지정 가능
 - 기본 파라미터가 지정되면 해당 파라미터는 선택적 파라미터로 취급
 - 파라미터 순서는 자유롭지만 기본 파라미터 값을 쓰려면 undefined를 명시적으로 전달해야 함.
+
+## Object type
+
+- Key와 Value로 구성된 프로퍼티의 집합
+
+```typescript
+const user = {
+    name : 'daniel',
+    age : 25
+}
+```
+
+### 함수 파라미터에 적용
+
+파라미터가 객체 형태인 경우
+
+```typescript
+function getProfile(person: { name: string; age: number}) {
+    return person.name + ", " + person.age.toString();
+}
+```
