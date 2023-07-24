@@ -111,3 +111,16 @@ let bar: Array[number] = [1, 2, 3];
 - any를 사용하는 방법
 - union type 을 사용하는 방법
 - type alias 를 사용하는 방법
+
+## literal type
+
+- string, number 는 문자열과 숫자 전체
+- literal은 그 중 특정한 문자열/숫자
+
+### 리터럴 타입의 특징
+
+- 특정한 문자열, 특정한 숫자만 값으로 허용
+- union type과 활용되는 경우가 많음
+- let 과 const의 동작과 관련이 있음
+
+> let과 const의 차이는 let은 재할당을 할 수 있고, const는 할 수 없다.

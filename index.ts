@@ -1,8 +1,15 @@
-let foo: number[] = [1, "a", false];    // X
-let bar: any[] = [1, "a", false];       // O
+let foo: string;
 
-let baz: (string | number | boolean)[] = [1, "a", false];
+let bar: "test";    // 특정한 값만 가질 수 있음.
 
-type fuz = (string | number | boolean);
+bar = "asd";    // X
 
-let buz: fuz[] = [1, "a", false, "b"];
+bar = "test";   // O
+
+let Yn: "Y" | "N";
+
+Yn = "Y";   // O
+Yn = "N";   // O
+Yn = "K";   // X
+
+const woo: string = "foo";  // O
