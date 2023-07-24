@@ -275,3 +275,8 @@ function getWidthString(width: number) {
     return `width: ${width}px`;
 }
 ```
+
+## intersection type(교차 타입)
+
+- 여러 타입을 결합할 때 사용
+- 주로 객체를 대상으로 활용
