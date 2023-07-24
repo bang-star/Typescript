@@ -1,15 +1,31 @@
-let foo: string;
+enum FrontEnd {
+    HTML,
+    CSS,
+    JavaScript
+}
 
-let bar: "test";    // 특정한 값만 가질 수 있음.
 
-bar = "asd";    // X
+console.log(FrontEnd.HTML);         // 0
+console.log(FrontEnd.JavaScript);   // 2
+console.log(FrontEnd.CSS);          // 1
 
-bar = "test";   // O
+enum FrontEnd2 {
+    HTML,
+    CSS = 7,
+    JavaScript
+}
 
-let Yn: "Y" | "N";
+console.log(FrontEnd2.HTML)         // 0
+console.log(FrontEnd2.CSS)          // 7
+console.log(FrontEnd2.JavaScript)   // 8
 
-Yn = "Y";   // O
-Yn = "N";   // O
-Yn = "K";   // X
 
-const woo: string = "foo";  // O
+enum FrontSkill {
+    HTML = "HTML",
+    CSS = 1,
+    JavaScript = "JavaScript"
+}
+
+console.log(FrontSkill.HTML)              // "HTML"
+console.log(FrontSkill.CSS)               // 1
+console.log(FrontSkill.JavaScript)        // "1"

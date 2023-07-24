@@ -124,3 +124,67 @@ let bar: Array[number] = [1, 2, 3];
 - let 과 const의 동작과 관련이 있음
 
 > let과 const의 차이는 let은 재할당을 할 수 있고, const는 할 수 없다.
+
+## Enum Type
+
+### What is Enum?
+
+- 상수를 그룹화 하는 자료형
+- Javascript 에는 없고, TypeScript 에만 있음.
+- namespace 와 그 안의 멤버들로 구성
+
+```typescript
+enum FrontEnd {
+    HTML,
+    CSS,
+    JavaScript
+}
+```
+
+### 숫자 열거형
+
+- TypeScript enum의 기본 형태
+- 별도의 값을 설정하지 않은 경우, 0부터 시작하여 이전 멤버의 + 1
+- 상수의 값 자체는 중요하지 않지만, 구분은 가능해야 하는 상황에서 유용
+
+### 문자 열거형
+
+- 값을 직접 초기해줘야 함. 이전 멤버의 값 +1이 불가능
+- 상수가 의미있는 값을 가지게 됨으로써 유용할 수 있음
+- 숫자 열거형과 동시에 사용은 가능하지만, 특별한 이유가 없다면 지양
+
+### Enum 컴파일
+
+From
+```typescript
+enum FrontEnd {
+    HTML,
+    CSS,
+    JavaScript
+}
+```
+
+to
+
+```typescript
+var FrontEnd;
+(function (FrontEnd) {
+    FrontEnd[FrontEnd["HTML"] = 0] = "HTML";
+    FrontEnd[FrontEnd["CSS"] = 1] = "CSS";
+    FrontEnd[FrontEnd["JavaScript"] = 2] = "JavaScript";
+}) (FrontEnd || (FrontEnd = {}));
+```
+
+- 멤버의 값의 짝을 만들어준다. 즉 멤버의 이름으로 값에, 멤버의 값으로 이름에 접근 가능하다.
+
+```typescript
+var FrontEnd;
+(function (FrontEnd) {
+    FrontEnd[0] = "HTML";
+    FrontEnd["HTML"] = 0;
+    FrontEnd[1] = "CSS";
+    FrontEnd["CSS"] = 1
+    FrontEnd[2] = "JavaScript";
+    FrontEnd["JavaScript"] = 2;
+}) (FrontEnd || (FrontEnd = {}));
+```
