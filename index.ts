@@ -1,12 +1,10 @@
-function getWidthString(width: number | string | [] | undefined) {
-    return `width: ${width}px`;
+// printPerson과 printPerson2 는 동일
+function printPerson(person: { name: string } & { age: number}) {
+    console.log("이름: ", person.name)
+    console.log("나이: ", person.age)
 }
 
-console.log(getWidthString(20));
-console.log(getWidthString("20"));
-
-function foo(
-    param: {name: string, age: number} | { name: string, height: number}
-) {
-    if (param.age) 
+function printPerson2(person: { name: string , age: number}) {
+    console.log("이름: ", person.name)
+    console.log("나이: ", person.age)
 }
