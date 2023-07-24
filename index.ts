@@ -1,24 +1,17 @@
-function getProfile(name: string, age: number) {
-    return name + ", " + age.toString();
+function getProfile(person: { name: string; age: number}) {
+    return person.name + ", " + person.age.toString();
 }
 
-console.log(getProfile("daniel", 25));  // "daniel, 25"
+console.log(getProfile("daniel", 25));                   // X
+console.log(getProfile({name: "daniel", age: 25}));      // O
 
-// console.log(getProfile("daniel"))            // X
-
-function getProfile2(name: string, age?: number) {
-    if(age) {
-        return name + ", " + age.toString();
+function getProfile2(person: { name: string; age?: number}) {
+    if(person.age) {
+        return person.name + ", " + person.age.toString();
     }else {
-        return name;
+        return person.name;
     }
 }
 
-console.log(getProfile2("daniel"))            // "daniel"
-
-function getProfile3(name: string, age: number = 20) {
-    return name + ", " + age.toString();
-}
-
-console.log(getProfile2("daniel"))                  // "daniel, 20"
-console.log(getProfile2("daniel", 25))         // "daniel, 25"
+console.log(getProfile2({name: "daniel"}));               // O
+console.log(getProfile2({name: "daniel", age: 25}));      // O
