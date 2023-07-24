@@ -225,3 +225,16 @@ let add: (a: number, b: number) => number = function (a, b) { return a + b; }
 
 let add: (a: number, b: number) => number = (a, b) => a + b;
 ```
+
+## 선택적 파라미터(Optional parameter)
+
+- 자바스크립트에서는 모든 파라미터가 선택적
+- 파라미터에 `?`을 붙이면선택적 파라미터가 되고 해당 파라미터의 타입은 undefined를 포함하는 형태가 됨.
+- 선택적 파라미터는 반드시 뒤 순서에 와야 한다.
+
+### 기본 파라미터(default parameter)
+
+- 선택적 파라미터에 값을 전달하지 않으면 해당 값은 undefined가 됨
+- 파라미터 뒤에 `=`를 통해 기본 값 지정 가능
+- 기본 파라미터가 지정되면 해당 파라미터는 선택적 파라미터로 취급
+- 파라미터 순서는 자유롭지만 기본 파라미터 값을 쓰려면 undefined를 명시적으로 전달해야 함.
