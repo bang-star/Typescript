@@ -188,3 +188,40 @@ var FrontEnd;
     FrontEnd["JavaScript"] = 2;
 }) (FrontEnd || (FrontEnd = {}));
 ```
+
+# 타입 심화
+
+## 함수와 함수의 타입
+
+### 함수의 타이핑(named function, 기명 함수)
+
+```typescript
+function add(a: number, b: number): number {
+    return a + b;
+}
+```
+
+### 함수의 타이핑(anonymous function)
+
+```typescript
+let add = function (a: number, b: number): number { return  a+ b; }
+
+let add = (a: number, b: number): number => a + b;      // ES 6
+```
+
+### 함수 타입
+
+- 함수를 타입으로 표현
+- (a: number, b: number) => number 화살표 함수의 형태로 표현
+- 리턴 타입은 추론에 의해 생략 가능하지만, 표기를 권장
+- 아무 값도 리턴하지 않는 함수의 리턴 타입은 void
+
+### 익명함수의 타이핑
+
+```typescript
+let add = function (a: number, b: number): number { return a + b; }
+
+let add: (a: number, b: number) => number = function (a, b) { return a + b; }
+
+let add: (a: number, b: number) => number = (a, b) => a + b;
+```
