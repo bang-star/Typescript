@@ -1,16 +1,8 @@
-let foo;
+let foo: number[] = [1, "a", false];    // X
+let bar: any[] = [1, "a", false];       // O
 
-function bar(a: string) {
-    console.log(a);
-}
+let baz: (string | number | boolean)[] = [1, "a", false];
 
-function baz(a: any) {
-    console.log(a);
-}
+type fuz = (string | number | boolean);
 
-let foz: number;
-
-let buz: unknown;
-
-buz = 10;
-foz = buz;  // X
+let buz: fuz[] = [1, "a", false, "b"];

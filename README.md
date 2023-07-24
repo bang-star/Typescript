@@ -92,3 +92,22 @@ let isSignIn: boolean = false
 - any와 비슷하지만 다른 타입
 - unknown 과 any 에만 할당 가능
 - "모르는 타입"의 경우 unknown 을 사용하는 것을 권장
+
+## 배열
+
+- 특정한 값들의 묶음
+
+
+### 배열의 타입(표기 방법)
+
+```typescript
+let foo: number[] = [1, 2, 3];
+
+let bar: Array[number] = [1, 2, 3];
+```
+
+### 요소의 타입이 다양할 경우
+
+- any를 사용하는 방법
+- union type 을 사용하는 방법
+- type alias 를 사용하는 방법
