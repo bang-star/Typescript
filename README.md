@@ -259,3 +259,8 @@ function getProfile(person: { name: string; age: number}) {
     return person.name + ", " + person.age.toString();
 }
 ```
+
+## 선택적 프로퍼티(Optional Property)
+
+- 함수의 선택적 파라미터와 유사하게, 객체 프로퍼티도 선택적인 타이핑이 가능
+- 프로퍼티 이름 뒤에 ?를 달아서 지정
