@@ -21,4 +21,170 @@ let foo: string = "foo";
 
 - 타입을 직접 지정하지 않으면 타입스크립트가 알아서 타입을 추론한다.
 
+## 원시 타입(Primitives Type)
 
+자바스크립트의 7가지 원시 자료형을 기반으로 두는 타입
+
+- string
+- number
+- boolean
+- bigint
+- symbol
+- undefined
+- null
+
+
+### String => 문자열
+
+ - "word"와 같이 "" 또는 ''으로 표기
+
+```typescript
+let foo: string = "foo";
+let bar: string = "ba" + "r";
+let someString: string = `my name is ${name}`;
+```
+
+### Number => 숫자
+
+ - 부동 소수 방식의 숫자 타입
+
+```typescript
+let someNumber: Number = 10;
+let hexNumber: number = 0x3fee7;
+```
+
+### Boolean => 참/거짓
+
+```typescript
+let isSignIn: boolean = false
+```
+
+## Null & undefined
+
+- 자바스크립트와 타입스크립트의 자료형이자 값
+- 자기 자신만을 값으로 가짐
+- 값이 할당되지 않으면 undefined, 의도저그로 빈 값을 할당하는 것은 null
+
+### StrictNullChecks
+
+- null, undefined 와 관련된 tsconfig 설정
+- 디폴트 off(단, strict 옵션이 있으면 on이 디폴트)
+- off => string 과 같은 타입에 null 또는 undefined 할당 가능
+- on => any 와 각자 자신의 타입에만 할당 가능
+
+
+## Any & unknown
+
+- 타입스크립트의 타입 체크를 패스
+- 어느 타입이나 할당 가능하고, 어느 타입에도 할당 가능(never는 예외)
+- 깅력하지만 유의해서 사용해야 함.
+
+### nolmplicitAny
+
+- any와 관련된 tsconfig 설정
+- 디폴트는 off(단, strict 옵션이 있으면 on이 디폴트)
+- 타입 지정을 하지 않으면 any로 추론
+- off => any로의 추론을 허용
+- on => any로의 추론을 허용 X
+
+### unknown 
+
+- any와 비슷하지만 다른 타입
+- unknown 과 any 에만 할당 가능
+- "모르는 타입"의 경우 unknown 을 사용하는 것을 권장
+
+## 배열
+
+- 특정한 값들의 묶음
+
+
+### 배열의 타입(표기 방법)
+
+```typescript
+let foo: number[] = [1, 2, 3];
+
+let bar: Array[number] = [1, 2, 3];
+```
+
+### 요소의 타입이 다양할 경우
+
+- any를 사용하는 방법
+- union type 을 사용하는 방법
+- type alias 를 사용하는 방법
+
+## literal type
+
+- string, number 는 문자열과 숫자 전체
+- literal은 그 중 특정한 문자열/숫자
+
+### 리터럴 타입의 특징
+
+- 특정한 문자열, 특정한 숫자만 값으로 허용
+- union type과 활용되는 경우가 많음
+- let 과 const의 동작과 관련이 있음
+
+> let과 const의 차이는 let은 재할당을 할 수 있고, const는 할 수 없다.
+
+## Enum Type
+
+### What is Enum?
+
+- 상수를 그룹화 하는 자료형
+- Javascript 에는 없고, TypeScript 에만 있음.
+- namespace 와 그 안의 멤버들로 구성
+
+```typescript
+enum FrontEnd {
+    HTML,
+    CSS,
+    JavaScript
+}
+```
+
+### 숫자 열거형
+
+- TypeScript enum의 기본 형태
+- 별도의 값을 설정하지 않은 경우, 0부터 시작하여 이전 멤버의 + 1
+- 상수의 값 자체는 중요하지 않지만, 구분은 가능해야 하는 상황에서 유용
+
+### 문자 열거형
+
+- 값을 직접 초기해줘야 함. 이전 멤버의 값 +1이 불가능
+- 상수가 의미있는 값을 가지게 됨으로써 유용할 수 있음
+- 숫자 열거형과 동시에 사용은 가능하지만, 특별한 이유가 없다면 지양
+
+### Enum 컴파일
+
+From
+```typescript
+enum FrontEnd {
+    HTML,
+    CSS,
+    JavaScript
+}
+```
+
+to
+
+```typescript
+var FrontEnd;
+(function (FrontEnd) {
+    FrontEnd[FrontEnd["HTML"] = 0] = "HTML";
+    FrontEnd[FrontEnd["CSS"] = 1] = "CSS";
+    FrontEnd[FrontEnd["JavaScript"] = 2] = "JavaScript";
+}) (FrontEnd || (FrontEnd = {}));
+```
+
+- 멤버의 값의 짝을 만들어준다. 즉 멤버의 이름으로 값에, 멤버의 값으로 이름에 접근 가능하다.
+
+```typescript
+var FrontEnd;
+(function (FrontEnd) {
+    FrontEnd[0] = "HTML";
+    FrontEnd["HTML"] = 0;
+    FrontEnd[1] = "CSS";
+    FrontEnd["CSS"] = 1
+    FrontEnd[2] = "JavaScript";
+    FrontEnd["JavaScript"] = 2;
+}) (FrontEnd || (FrontEnd = {}));
+```
