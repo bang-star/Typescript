@@ -1,17 +1,12 @@
-function getProfile(person: { name: string; age: number}) {
-    return person.name + ", " + person.age.toString();
+function getWidthString(width: number | string | [] | undefined) {
+    return `width: ${width}px`;
 }
 
-console.log(getProfile("daniel", 25));                   // X
-console.log(getProfile({name: "daniel", age: 25}));      // O
+console.log(getWidthString(20));
+console.log(getWidthString("20"));
 
-function getProfile2(person: { name: string; age?: number}) {
-    if(person.age) {
-        return person.name + ", " + person.age.toString();
-    }else {
-        return person.name;
-    }
+function foo(
+    param: {name: string, age: number} | { name: string, height: number}
+) {
+    if (param.age) 
 }
-
-console.log(getProfile2({name: "daniel"}));               // O
-console.log(getProfile2({name: "daniel", age: 25}));      // O
