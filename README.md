@@ -264,3 +264,14 @@ function getProfile(person: { name: string; age: number}) {
 
 - 함수의 선택적 파라미터와 유사하게, 객체 프로퍼티도 선택적인 타이핑이 가능
 - 프로퍼티 이름 뒤에 ?를 달아서 지정
+
+## Union Type
+
+- 타입의 OR 연산자
+- 여러 종류의 타입을 할당 가능하게 하고 싶을 때 사용
+
+```typescript
+function getWidthString(width: number) {
+    return `width: ${width}px`;
+}
+```
