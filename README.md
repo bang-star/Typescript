@@ -359,3 +359,15 @@ interface Developer extends Person {
     field: string;
 }
 ```
+
+## Type vs Interface
+
+### Type
+
+- 타입을 부를 "이름" 정의
+- 확장 불가
+
+### Interface
+
+- 새로운 "인터페이스" 정의
+- 확장 가능
