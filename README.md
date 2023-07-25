@@ -387,3 +387,4 @@ interface Developer extends Person {
 
 - 코드의 위치를 기준으로 암시되는 타입을 추론
 - 문맥상 추론이 불가능할 경우, 암묵적 any를 가짐 => nolmplicityAny 옵션이 켜져 있을 경우 에러 발생.
+```
