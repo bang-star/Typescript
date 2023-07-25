@@ -1,19 +1,13 @@
-// 실제로 존재하는 것이 아님
-type Person = {
-    name: string,
-    age: number
+let foo = 3;        // number
+let fuz = "string";  // string
+
+// === Best Common type === //
+let bar = [1, 2, "string"]  // => (string | number)[]
+
+// === Contextual typing === //
+[1, 2, 3, 4].forEach((element) => { console.log(element)} );
+
+let fifo = function (param) {
+    console.log(param);
 }
 
-interface Music {
-    lyrics: string;
-    artists: Person[];
-}
-
-interface Human {
-    name: string;
-    age: number;
-}
-
-interface Developer extends Person {
-    field: string;
-}
