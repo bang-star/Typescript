@@ -295,3 +295,67 @@ type MyType = string | number;
 - 타입에 이름, 즉 의미를 부여하여 가독성 향상
 - 객체 타입, 유니언 타입 등에 활용
 - 반복되는 코드를 간결하게 표현
+
+## Interface
+
+- 함수나 객체, 클래스의 스펙에 대한 정의
+- 어떤 속성을 가지고 있어야 하는지에 대한 정의
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+```
+
+### Optional Property
+
+- 객체 타입에서의 선택적 프로퍼티와 유사
+- 프로퍼티가 있어도 되고, 없어도 될 때
+
+```typescript
+interface Person {
+    name : string;
+    age? : number;
+}
+```
+
+### Readonly Property
+
+- 객체가 처음 생성될때만 수정 가능한 프로퍼티
+- 처음 생성 이후의 재할당 불가
+
+```typescript
+interface Person {
+    name: string;
+    readonly age: number;
+}
+```
+
+### Indexed signature
+
+- 정의되지 않은 동적 타입의 할당이 필요할 때
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+    [key: string]: any;
+}
+```
+
+### Extends
+
+- 다른 인터페이스를 참조하여 확장할 수 있음
+- 재사용 가능하게 쪼개고 조합해서 유연하게 사용 가능
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+
+interface Developer extends Person {
+    field: string;
+}
+```
