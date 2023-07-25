@@ -188,3 +188,203 @@ var FrontEnd;
     FrontEnd["JavaScript"] = 2;
 }) (FrontEnd || (FrontEnd = {}));
 ```
+
+# 타입 심화
+
+## 함수와 함수의 타입
+
+### 함수의 타이핑(named function, 기명 함수)
+
+```typescript
+function add(a: number, b: number): number {
+    return a + b;
+}
+```
+
+### 함수의 타이핑(anonymous function)
+
+```typescript
+let add = function (a: number, b: number): number { return  a+ b; }
+
+let add = (a: number, b: number): number => a + b;      // ES 6
+```
+
+### 함수 타입
+
+- 함수를 타입으로 표현
+- (a: number, b: number) => number 화살표 함수의 형태로 표현
+- 리턴 타입은 추론에 의해 생략 가능하지만, 표기를 권장
+- 아무 값도 리턴하지 않는 함수의 리턴 타입은 void
+
+### 익명함수의 타이핑
+
+```typescript
+let add = function (a: number, b: number): number { return a + b; }
+
+let add: (a: number, b: number) => number = function (a, b) { return a + b; }
+
+let add: (a: number, b: number) => number = (a, b) => a + b;
+```
+
+## 선택적 파라미터(Optional parameter)
+
+- 자바스크립트에서는 모든 파라미터가 선택적
+- 파라미터에 `?`을 붙이면선택적 파라미터가 되고 해당 파라미터의 타입은 undefined를 포함하는 형태가 됨.
+- 선택적 파라미터는 반드시 뒤 순서에 와야 한다.
+
+### 기본 파라미터(default parameter)
+
+- 선택적 파라미터에 값을 전달하지 않으면 해당 값은 undefined가 됨
+- 파라미터 뒤에 `=`를 통해 기본 값 지정 가능
+- 기본 파라미터가 지정되면 해당 파라미터는 선택적 파라미터로 취급
+- 파라미터 순서는 자유롭지만 기본 파라미터 값을 쓰려면 undefined를 명시적으로 전달해야 함.
+
+## Object type
+
+- Key와 Value로 구성된 프로퍼티의 집합
+
+```typescript
+const user = {
+    name : 'daniel',
+    age : 25
+}
+```
+
+### 함수 파라미터에 적용
+
+파라미터가 객체 형태인 경우
+
+```typescript
+function getProfile(person: { name: string; age: number}) {
+    return person.name + ", " + person.age.toString();
+}
+```
+
+## 선택적 프로퍼티(Optional Property)
+
+- 함수의 선택적 파라미터와 유사하게, 객체 프로퍼티도 선택적인 타이핑이 가능
+- 프로퍼티 이름 뒤에 ?를 달아서 지정
+
+## Union Type
+
+- 타입의 OR 연산자
+- 여러 종류의 타입을 할당 가능하게 하고 싶을 때 사용
+
+```typescript
+function getWidthString(width: number) {
+    return `width: ${width}px`;
+}
+```
+
+## intersection type(교차 타입)
+
+- 여러 타입을 결합할 때 사용
+- 주로 객체를 대상으로 활용
+
+## Type Alias
+
+```typescript
+type MyType = string | number;
+```
+
+- 타입에 이름을 부여하는 것
+- 새로운 타입을 만드는 것은 아님.
+
+### 사용되는 경우
+
+- 타입에 이름, 즉 의미를 부여하여 가독성 향상
+- 객체 타입, 유니언 타입 등에 활용
+- 반복되는 코드를 간결하게 표현
+
+## Interface
+
+- 함수나 객체, 클래스의 스펙에 대한 정의
+- 어떤 속성을 가지고 있어야 하는지에 대한 정의
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+```
+
+### Optional Property
+
+- 객체 타입에서의 선택적 프로퍼티와 유사
+- 프로퍼티가 있어도 되고, 없어도 될 때
+
+```typescript
+interface Person {
+    name : string;
+    age? : number;
+}
+```
+
+### Readonly Property
+
+- 객체가 처음 생성될때만 수정 가능한 프로퍼티
+- 처음 생성 이후의 재할당 불가
+
+```typescript
+interface Person {
+    name: string;
+    readonly age: number;
+}
+```
+
+### Indexed signature
+
+- 정의되지 않은 동적 타입의 할당이 필요할 때
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+    [key: string]: any;
+}
+```
+
+### Extends
+
+- 다른 인터페이스를 참조하여 확장할 수 있음
+- 재사용 가능하게 쪼개고 조합해서 유연하게 사용 가능
+
+```typescript
+interface Person {
+    name: string;
+    age: number;
+}
+
+interface Developer extends Person {
+    field: string;
+}
+```
+
+## Type vs Interface
+
+### Type
+
+- 타입을 부를 "이름" 정의
+- 확장 불가
+
+### Interface
+
+- 새로운 "인터페이스" 정의
+- 확장 가능
+
+## Type inference
+
+- 타입을 따로 지정하지 않은 경우, 타입스크립트가 타입을 추론하여 타입 정보를 제공
+- 대부분의 경우 직관적으로 추론
+- 변수의 멤버의 초기화, 기본 매개변수의 결정, 함수의 리턴타입 결정 등을 할 때 일어남.
+
+### Best Common type
+
+- 여러 타입들이 있는 경우 그 타입들을 표현할 수 있는 최적 타입을 찾음
+- 대부분 유니언 타입 형태로 표현됨
+
+### Contextual typing
+
+- 코드의 위치를 기준으로 암시되는 타입을 추론
+- 문맥상 추론이 불가능할 경우, 암묵적 any를 가짐 => nolmplicityAny 옵션이 켜져 있을 경우 에러 발생.
+```
