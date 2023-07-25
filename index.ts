@@ -1,10 +1,14 @@
-// printPerson과 printPerson2 는 동일
-function printPerson(person: { name: string } & { age: number}) {
-    console.log("이름: ", person.name)
-    console.log("나이: ", person.age)
+type MyString = string;
+
+type MyType = string | number;
+
+type Person = {
+    name: string,
+    age: number
 }
 
-function printPerson2(person: { name: string , age: number}) {
-    console.log("이름: ", person.name)
-    console.log("나이: ", person.age)
+type Music = {
+    lyrics: string;
+    duration: number;
+    artists: Person[];
 }

@@ -280,3 +280,18 @@ function getWidthString(width: number) {
 
 - 여러 타입을 결합할 때 사용
 - 주로 객체를 대상으로 활용
+
+## Type Alias
+
+```typescript
+type MyType = string | number;
+```
+
+- 타입에 이름을 부여하는 것
+- 새로운 타입을 만드는 것은 아님.
+
+### 사용되는 경우
+
+- 타입에 이름, 즉 의미를 부여하여 가독성 향상
+- 객체 타입, 유니언 타입 등에 활용
+- 반복되는 코드를 간결하게 표현
