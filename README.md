@@ -388,3 +388,149 @@ interface Developer extends Person {
 - 코드의 위치를 기준으로 암시되는 타입을 추론
 - 문맥상 추론이 불가능할 경우, 암묵적 any를 가짐 => nolmplicityAny 옵션이 켜져 있을 경우 에러 발생.
 ```
+
+대신에 타입스크립트에서는 ES6에서 사용하던 기본 문법에 더해서 더 효율적으로 사용할 수 있도록 문법이 추가되었습니다.
+
+### 타입스크립트에서의 클래스
+
+- 필드(+ 접근 제어자)
+- 메소드(+ 접근 제어자)
+- 상속
+- getter/setter
+- static
+- readonly
+
+## Field
+
+- 클래스 내부의 캡슐화된 변수
+- 생성되는 인스턴스의 프로퍼티가 된다.
+- 인스턴스 생성 시 constructor 로 초기화
+
+### 필드 선언 예시
+
+```typescript
+class Person {
+    name: string;
+    age: number;
+    height: number = 10;
+}
+```
+
+### 필드의 접근 제어자(Access Modifiers / Member Visibility)
+
+- 클래스 내/외부에서 멤버에 접근 가능 여부를 결정
+- public(기본): 클래스 외부에서 접근 가능
+- private: 클래스 내부에서만 접근 가능
+- protected: 자신과 서브(자식) 클래스에서만 접근 가능
+
+## Method
+
+- 클래스의 함수 멤버
+- 일반적인 함수처럼 타입 지정 가능
+- 클래스 내부의 멤버 변수는 this 로 접근
+
+### 메소드 예시
+
+```typescript
+class Person {
+    name: string;                       
+    age: number;                
+    height: number = 10;
+    
+    getOlder(n: number) {
+        this.age += n;
+    }
+}
+```
+
+### Access Modifiers(메소드 접근 제어자)
+
+- 필드의 접근 제어자와 동일하게 작동
+- public(기본): 클래스 외부에서 접근 가능
+- private: 클래스 내부에서만 접근 가능
+- protected: 자신과 서브(자식) 클래스에서만 접근 가능
+
+## Inheritance
+
+이미 존재하는 클래스를 확장하여 새로운 클래스를 만드는 것
+
+```typescript
+// 부모 클래스(super class)
+class Person {}
+// 자식 클래스(sub class)
+class Developer extends Person {}
+```
+
+### 상속 예시
+
+```typescript
+class Developer extends Person {
+    field: string;
+
+    constructor(
+        name: string, 
+        age: number, 
+        height: number, 
+        field: string
+    ) {
+        super(name, age, height);
+        this.field = field;
+    }
+}
+```
+
+
+
+## readonly
+
+- 값을 읽는 것(접근)만 가능. 재할당 불가
+- 멤버의 선언 또는 생성자에서 초기화해야 함.
+
+## Accessor(접근자)
+
+- 클래스 내부의 필드에 접근하는 메소드
+- public이 아닌 필드에 접근하거나 제약조건이 필요한 경우에 활용
+- 호출이 아닌 참조를 통해 사용
+
+### 접근자 사용법
+
+```typescript
+class Person {
+    private _name: string = 'Kim';
+    
+    // person.name (O)
+    get name() {
+        return this._name;
+    }
+    // person.name = "Lee";
+    set name(name: string) {
+        this._name = name;
+    }
+}
+```
+
+### 접근자의 특징
+
+- getter
+  - 리턴 값이 필수
+- setter
+  - 하나의 파라미터 필수
+
+getter만 존재할 경우, 해당 프로퍼티는 자동으로 readonly가 됨.
+
+## static
+
+### 전역 프로퍼티
+
+- 특정 인스턴스에 관련되지 않은 전역 멤버
+- 인스턴스를 생성하지 않고 클래스를 통해 접근
+- `일반적인 경우`에 활용
+- 접근 제어자 적용 가능
+
+
+
+## implements
+
+- 클래스가 특정 스펙을 만족하도록 인터페이스를 적용
+- 클래스를 통해 만들어진 인스턴스가 가질 속성과 메서드를 정의
+
