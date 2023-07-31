@@ -3,18 +3,39 @@ class Person {
     age: number;
     height: number = 10;
 
-    public setOlder(n: number) {
-        this.age += n;
+    constructor(
+        name: string,
+        age: number,
+        height: number,
+    ) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+    }
+
+    public setOlder(age: number) {
+        this.age += age;
     }
 }
 
-const person = new Person();
-person.name = 'BBB';
-person.age = 25;            // X
-person.height = 180;        // X
+class Developer extends Person {
+    field: string;
 
-console.log(person.name, person.age, person.height);
+    constructor(
+        name: string,
+        age: number,
+        height: number,
+        field: string
+    ) {
+        super(name, age, height);
+        this.field = field;
+    }
 
-person.setOlder(3);         // 28
+    getProfile() {
+        return this.field + " / " + this.name;
+    }
+}
 
-console.log(person.name, person.age, person.height);
+const developer = new Developer('GO', 1, 2, 'GI');
+
+console.log(developer.getProfile());
