@@ -1,25 +1,20 @@
-class Store {
-    static type = "Food";
+interface PersonSpec {
+    name: string;
+    think: (thoughts: string) => void;
+}
 
-    private _name: string;
+class Person implements PersonSpec {
+    name: string;
 
     constructor(name: string) {
-        this._name = name;
+        this.name = name;
     }
 
-    get name() {
-        return this._name;
-    }
-
-    set name(name: string) {
-        this._name = name;
-    }
-
-    static getType() {
-        return this.type;
+    think(thoughts: string): void {
+        console.log(thoughts);
     }
 }
 
-const store = new Store("hamburger");
+const person = new Person("Kim");
 
-console.log(store.name, Store.type);
+person.think("TypeScript");
