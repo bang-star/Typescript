@@ -451,3 +451,31 @@ class Person {
 - private: 클래스 내부에서만 접근 가능
 - protected: 자신과 서브(자식) 클래스에서만 접근 가능
 
+
+
+## Method
+
+- 클래스의 함수 멤버
+- 일반적인 함수처럼 타입 지정 가능
+- 클래스 내부의 멤버 변수는 this 로 접근
+
+### 메소드 예시
+
+```typescript
+class Person {
+    name: string;                       
+    age: number;                
+    height: number = 10;
+    
+    getOlder(n: number) {
+        this.age += n;
+    }
+}
+```
+
+### Access Modifiers(메소드 접근 제어자)
+
+- 필드의 접근 제어자와 동일하게 작동
+- public(기본): 클래스 외부에서 접근 가능
+- private: 클래스 내부에서만 접근 가능
+- protected: 자신과 서브(자식) 클래스에서만 접근 가능
