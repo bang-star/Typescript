@@ -427,3 +427,27 @@ class MyClass {
 - getter/setter
 - static
 - readonly
+
+## Field
+
+- 클래스 내부의 캡슐화된 변수
+- 생성되는 인스턴스의 프로퍼티가 된다.
+- 인스턴스 생성 시 constructor 로 초기화
+
+### 필드 선언 예시
+
+```typescript
+class Person {
+    name: string;
+    age: number;
+    height: number = 10;
+}
+```
+
+### 필드의 접근 제어자(Access Modifiers / Member Visibility)
+
+- 클래스 내/외부에서 멤버에 접근 가능 여부를 결정
+- public(기본): 클래스 외부에서 접근 가능
+- private: 클래스 내부에서만 접근 가능
+- protected: 자신과 서브(자식) 클래스에서만 접근 가능
+
