@@ -451,8 +451,6 @@ class Person {
 - private: 클래스 내부에서만 접근 가능
 - protected: 자신과 서브(자식) 클래스에서만 접근 가능
 
-
-
 ## Method
 
 - 클래스의 함수 멤버
@@ -509,3 +507,9 @@ class Developer extends Person {
 }
 ```
 
+
+
+## readonly
+
+- 값을 읽는 것(접근)만 가능. 재할당 불가
+- 멤버의 선언 또는 생성자에서 초기화해야 함.
