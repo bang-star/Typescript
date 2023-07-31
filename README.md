@@ -479,3 +479,33 @@ class Person {
 - public(기본): 클래스 외부에서 접근 가능
 - private: 클래스 내부에서만 접근 가능
 - protected: 자신과 서브(자식) 클래스에서만 접근 가능
+
+## Inheritance
+
+이미 존재하는 클래스를 확장하여 새로운 클래스를 만드는 것
+
+```typescript
+// 부모 클래스(super class)
+class Person {}
+// 자식 클래스(sub class)
+class Developer extends Person {}
+```
+
+### 상속 예시
+
+```typescript
+class Developer extends Person {
+    field: string;
+
+    constructor(
+        name: string, 
+        age: number, 
+        height: number, 
+        field: string
+    ) {
+        super(name, age, height);
+        this.field = field;
+    }
+}
+```
+
