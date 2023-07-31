@@ -1,30 +1,25 @@
-class Person {
-    private _name: string = 'Kim';
-    private _age : number = 10;
+class Store {
+    static type = "Food";
 
-    // person.name (O)
+    private _name: string;
+
+    constructor(name: string) {
+        this._name = name;
+    }
+
     get name() {
         return this._name;
     }
-    // person.name = "Lee";
+
     set name(name: string) {
-        if(name != '') {
-            this._name = name;
-        }
+        this._name = name;
     }
 
-    get age() {
-        return this._age;
-    }
-
-    set age(age: number) {
-        this._age = age;
+    static getType() {
+        return this.type;
     }
 }
 
-const person = new Person();
-console.log(person.name + "-" + person.age)
+const store = new Store("hamburger");
 
-person.name = 'Lee';
-
-console.log(person.name + "-" + person.age)
+console.log(store.name, Store.type);
