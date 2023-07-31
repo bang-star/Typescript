@@ -513,3 +513,35 @@ class Developer extends Person {
 
 - 값을 읽는 것(접근)만 가능. 재할당 불가
 - 멤버의 선언 또는 생성자에서 초기화해야 함.
+
+## Accessor(접근자)
+
+- 클래스 내부의 필드에 접근하는 메소드
+- public이 아닌 필드에 접근하거나 제약조건이 필요한 경우에 활용
+- 호출이 아닌 참조를 통해 사용
+
+### 접근자 사용법
+
+```typescript
+class Person {
+    private _name: string = 'Kim';
+    
+    // person.name (O)
+    get name() {
+        return this._name;
+    }
+    // person.name = "Lee";
+    set name(name: string) {
+        this._name = name;
+    }
+}
+```
+
+### 접근자의 특징
+
+- getter
+  - 리턴 값이 필수
+- setter
+  - 하나의 파라미터 필수
+
+getter만 존재할 경우, 해당 프로퍼티는 자동으로 readonly가 됨.
