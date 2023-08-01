@@ -602,3 +602,15 @@ type A = keyof B
 - 대상의 타입을 리턴하는 연산자
 - string, number, boolean, object, symbol, bigint, function, undefined 중에서 반환
 
+
+
+## instanceOf
+
+### what is instanceOf
+
+- 자바스크릡트의 instanceof와 동일
+- 어떤 값이 다른 값의 인스턴스인지를 판별
+
+```typescript
+foo instanceof Bar;
+```

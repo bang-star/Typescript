@@ -1,26 +1,29 @@
 /**
- * typeof
+ * instanceOf
  */
 
-function logInputType(input: any) {
-    console.log(typeof input);
+class Person {
+    name: string = "Kim";
+    job: string = "artist";
 }
 
-logInputType(10)            // number
-logInputType("100")         // string
-logInputType(null)          // object
-logInputType(undefined)     // undefined
-logInputType([1, 2])        // object
-logInputType(true)          // boolean
-logInputType(() => { return "result"}); // function
+class Dog {
+    name: string = "foo";
+    breed: string = "poodle";
+}
 
+function checkAndLog(input: Person | Dog) {
+    console.log(input.name);
 
+    if(input instanceof Person) {
+        console.log("person")
+        console.log(input.job);
+    }
 
-function logInputIfNumber(input: string | number) {
-    if(typeof input === "number") {
-        console.log(input);
+    if(input instanceof Dog) {
+        console.log("dog")
+        console.log(input.breed)
     }
 }
 
-logInputIfNumber(100);
-logInputIfNumber("string");
+checkAndLog(new Dog());
