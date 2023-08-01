@@ -1,17 +1,26 @@
 /**
- * in
+ * typeof
  */
 
-type Developer = { name: string; field: string };
-
-type Designer = { name: string; level: "junior" | "senior" };
-
-function logField(person: Developer | Designer) {
-    // console.log(person.field);  // 보장 불가
-
-    if("field" in person)
-        console.log(person.field);  // 보장 불가
+function logInputType(input: any) {
+    console.log(typeof input);
 }
 
-logField({name: 'Kim', field: "BE"});       // BE
-logField({name: 'Lee', level: "junior"});   // 출력 X
+logInputType(10)            // number
+logInputType("100")         // string
+logInputType(null)          // object
+logInputType(undefined)     // undefined
+logInputType([1, 2])        // object
+logInputType(true)          // boolean
+logInputType(() => { return "result"}); // function
+
+
+
+function logInputIfNumber(input: string | number) {
+    if(typeof input === "number") {
+        console.log(input);
+    }
+}
+
+logInputIfNumber(100);
+logInputIfNumber("string");
