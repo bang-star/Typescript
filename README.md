@@ -582,3 +582,14 @@ function returnInput<T>(input: T) {
 ```typescript
 type A = keyof B
 ```
+
+## in
+
+### in 타입이란
+
+- 어떤 타입에 특정 프로퍼티가 있는지 판별하는 연산자 (true/false)
+- 유니언 타입과 함께 사용
+
+```typescript
+"foo" in bar;
+```
