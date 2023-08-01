@@ -1,11 +1,29 @@
 /**
- * indexed access type
+ * Conditional Type
  */
 
-type Person = { name: string; age: number; isDeveloper: boolean; };
+interface Person {
+    name: string;
+}
 
-type Name = Person["name"];
+interface Developer extends Person {
+    field: string;
+}
 
-type NameAndAge = Person["name" | "age"];
+interface Designer {
+    field: string;
+}
 
-type TypeOfPerson = Person["name" | "age" | "isDeveloper"] = Person[keyof Person]
+type Foo = Developer extends Person ? string : number;  // => string
+type Bar = Designer extends Person ? string : number;   // => number
+type Baz = Person extends Developer ? string : number;  // => number
+
+
+type StringOrNumber<T extends number | string> = T extends number ? number : string;
+
+function getType<T extends number | string>(input: T):StringOrNumber<T> {
+    return;
+}
+
+let foo = getType("string");        // string
+let bar = getType(100);            // number

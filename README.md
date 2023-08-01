@@ -627,3 +627,14 @@ type Person = { name: string; age: number; isDeveloper: boolean; };
 type Name = Person["name"];
 ```
 
+
+
+## Conditional Type
+
+- 조건에 따라 두 타입 중 하나를 선택
+- 삼항 연산자와 같은 형태
+
+```typescript
+SomeType extends OtherType ? IfTure : IfFalse
+```
+
