@@ -1,29 +1,37 @@
 /**
- * Conditional Type
+ * Mapping Type
  */
 
-interface Person {
+// ========== EX 1 ========== //
+// AS-IS
+type StatusByRating = {
+    1: boolean;
+    2: boolean;
+    3: boolean;
+    4: boolean;
+    5: boolean;
+}
+
+// TO-BE
+type Rating = 1 | 2 | 3 | 4 | 5;
+
+type StatusByRating = {
+    [rating in Rating]: boolean;
+}
+
+// ========== EX 2 ========== //
+// AS-IS
+type Person = {
     name: string;
+    age: number;
 }
 
-interface Developer extends Person {
-    field: string;
+type StringPerson = {
+    name: string;
+    age: number;
 }
 
-interface Designer {
-    field: string;
+// TO-BE
+type StringPerson = {
+    [property in keyof Person] : string;
 }
-
-type Foo = Developer extends Person ? string : number;  // => string
-type Bar = Designer extends Person ? string : number;   // => number
-type Baz = Person extends Developer ? string : number;  // => number
-
-
-type StringOrNumber<T extends number | string> = T extends number ? number : string;
-
-function getType<T extends number | string>(input: T):StringOrNumber<T> {
-    return;
-}
-
-let foo = getType("string");        // string
-let bar = getType(100);            // number
