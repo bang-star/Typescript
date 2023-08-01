@@ -571,3 +571,14 @@ function returnInput<T>(input: T) {
 ### 타입 매개변수의 활용
 
 - 한 타입 매개변수를 다른 타입 매개변수의 제약조건으로 활용할 수 있음.
+
+## keyof
+
+### keyof
+
+- 대상 객체 타입의 key들의 리터럴 유니언을 만드는 타입 연산자
+- 대상이 인덱스 시그니처를 가질 경우 해당 타입을 리턴
+
+```typescript
+type A = keyof B
+```
