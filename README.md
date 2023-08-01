@@ -642,3 +642,13 @@ SomeType extends OtherType ? IfTure : IfFalse
 
 - 다른 타입을 기반으로 생성하는 타입
 - 일일이 모든 프로퍼티 타입 지정을 하고싶지 않을 때 사용
+
+## Type Assertion
+
+- 어떤 타입에 대해 타입스크립트가 알지 못하는 것을 알려주는 방법
+- 타입스크립트가 인식한 타입의 더 혹은 덜 상세한 타입을 지정
+- 컴파일 과정에서만 사용되므로 런타임에는 영향 없음
+
+```typescript
+logInput(someString as "10");
+```

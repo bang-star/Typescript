@@ -1,37 +1,34 @@
 /**
- * Mapping Type
+ * Assertion
  */
 
 // ========== EX 1 ========== //
-// AS-IS
-type StatusByRating = {
-    1: boolean;
-    2: boolean;
-    3: boolean;
-    4: boolean;
-    5: boolean;
+let someString: string = "10";
+
+function logInput(input: "10") {
+    console.log(input);
 }
 
-// TO-BE
-type Rating = 1 | 2 | 3 | 4 | 5;
-
-type StatusByRating = {
-    [rating in Rating]: boolean;
-}
+logInput(someString as "10");
 
 // ========== EX 2 ========== //
-// AS-IS
-type Person = {
+
+interface Person {
     name: string;
     age: number;
 }
 
-type StringPerson = {
-    name: string;
-    age: number;
+interface Developer extends Person {
+    field: string;
 }
 
-// TO-BE
-type StringPerson = {
-    [property in keyof Person] : string;
+function getName(person : Person) {
+    return person.name;
 }
+
+getName({name: "Kim", age: 25, field: "FE"} as Person);
+
+// ========== EX 3 ========== //
+
+const errCase: string = "error!" as number;                 // X
+const errCase: string = "error!" as unknown as number;      // O
