@@ -638,3 +638,7 @@ type Name = Person["name"];
 SomeType extends OtherType ? IfTure : IfFalse
 ```
 
+## Mapping Type
+
+- 다른 타입을 기반으로 생성하는 타입
+- 일일이 모든 프로퍼티 타입 지정을 하고싶지 않을 때 사용
