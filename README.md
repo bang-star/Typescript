@@ -593,3 +593,12 @@ type A = keyof B
 ```typescript
 "foo" in bar;
 ```
+
+## tpyeof
+
+### typeof 란
+
+- 자바스크립트 typeof의 확장
+- 대상의 타입을 리턴하는 연산자
+- string, number, boolean, object, symbol, bigint, function, undefined 중에서 반환
+
