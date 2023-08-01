@@ -1,29 +1,11 @@
 /**
- * instanceOf
+ * indexed access type
  */
 
-class Person {
-    name: string = "Kim";
-    job: string = "artist";
-}
+type Person = { name: string; age: number; isDeveloper: boolean; };
 
-class Dog {
-    name: string = "foo";
-    breed: string = "poodle";
-}
+type Name = Person["name"];
 
-function checkAndLog(input: Person | Dog) {
-    console.log(input.name);
+type NameAndAge = Person["name" | "age"];
 
-    if(input instanceof Person) {
-        console.log("person")
-        console.log(input.job);
-    }
-
-    if(input instanceof Dog) {
-        console.log("dog")
-        console.log(input.breed)
-    }
-}
-
-checkAndLog(new Dog());
+type TypeOfPerson = Person["name" | "age" | "isDeveloper"] = Person[keyof Person]

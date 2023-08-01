@@ -614,3 +614,16 @@ type A = keyof B
 ```typescript
 foo instanceof Bar;
 ```
+
+## indexed access type
+
+### indexed access type
+
+- 다른 타입의 특정 프로퍼티를 참조하는 타입
+- 인덱싱 타입도 타입이기 때문에 인덱싱하는 타입에 제한은 없음(유니언, typeof 등 사용 가능)
+
+```typescript
+type Person = { name: string; age: number; isDeveloper: boolean; };
+type Name = Person["name"];
+```
+
