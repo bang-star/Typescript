@@ -1,12 +1,17 @@
 /**
- * Keyof
+ * in
  */
 
-type A = { a: string; b: number; 3: boolean; }
+type Developer = { name: string; field: string };
 
-type B = keyof A;   // "a" | "b" | 3
+type Designer = { name: string; level: "junior" | "senior" };
 
-type Indexed = { [key: number]: any; };
+function logField(person: Developer | Designer) {
+    // console.log(person.field);  // 보장 불가
 
-type IndexedKey = keyof Indexed;
+    if("field" in person)
+        console.log(person.field);  // 보장 불가
+}
 
+logField({name: 'Kim', field: "BE"});       // BE
+logField({name: 'Lee', level: "junior"});   // 출력 X
