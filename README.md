@@ -534,8 +534,6 @@ getter만 존재할 경우, 해당 프로퍼티는 자동으로 readonly가 됨.
 - 클래스가 특정 스펙을 만족하도록 인터페이스를 적용
 - 클래스를 통해 만들어진 인스턴스가 가질 속성과 메서드를 정의
 
-
-
 # Handling Type
 
 ## Generic
@@ -652,3 +650,14 @@ SomeType extends OtherType ? IfTure : IfFalse
 ```typescript
 logInput(someString as "10");
 ```
+
+
+# 네임스페이스와 모듈
+
+## Namespace
+
+- 식별자를 그룹화 한 것
+- 네임스페이스 내부에 선언된 식별자는 다른 네임스페이스의 식별자와 구분됨
+- 네임스페이스 내부의 식별자는 네임스페이스의 이름을 통해 접근 가능
+
+
