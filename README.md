@@ -661,3 +661,8 @@ logInput(someString as "10");
 - 네임스페이스 내부의 식별자는 네임스페이스의 이름을 통해 접근 가능
 
 
+## Module
+
+- 파일 범위로 구분되는 스코프
+- export와 import를 통해 동작
+- export 또는 import가 없는 파일은 스크립트로 취급
