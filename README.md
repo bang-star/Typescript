@@ -387,7 +387,7 @@ interface Developer extends Person {
 
 - 코드의 위치를 기준으로 암시되는 타입을 추론
 - 문맥상 추론이 불가능할 경우, 암묵적 any를 가짐 => nolmplicityAny 옵션이 켜져 있을 경우 에러 발생.
-```
+
 
 대신에 타입스크립트에서는 ES6에서 사용하던 기본 문법에 더해서 더 효율적으로 사용할 수 있도록 문법이 추가되었습니다.
 
@@ -534,3 +534,121 @@ getter만 존재할 경우, 해당 프로퍼티는 자동으로 readonly가 됨.
 - 클래스가 특정 스펙을 만족하도록 인터페이스를 적용
 - 클래스를 통해 만들어진 인스턴스가 가질 속성과 메서드를 정의
 
+
+
+# Handling Type
+
+## Generic
+
+### 제네릭이란
+
+- 클래스, 함수 등에서 사용할 타입을 클래스나 함수를 사용할 때 결정하는 기법
+- 함수에서 파라미터를 받듯이 타입을 받는 것
+- 유연하지만 안정적인 개발이 가능
+
+### 제네릭 예시
+
+```typescript
+let foo: Array<number> = [1, 2, 3];
+
+function returnInput<T>(input: T) {
+    return input;
+}
+```
+
+### 제네릭 사용 시 주의점
+
+어떤 타입이 캡쳐될지 미리 알수 없기 때문에 캡쳐되는 타입은 any 처럼 다루어야 한다.
+
+## Generic constraints
+
+### 제네릭 제약조건이란?
+
+- 특정 타입들에만 동작하는 제네릭을 만드는 방법
+- 타입 변수가 캡쳐하는 타입이 어떤 타입인지 `힌트`를 줌
+- extends 활용
+
+### 타입 매개변수의 활용
+
+- 한 타입 매개변수를 다른 타입 매개변수의 제약조건으로 활용할 수 있음.
+
+## keyof
+
+### keyof
+
+- 대상 객체 타입의 key들의 리터럴 유니언을 만드는 타입 연산자
+- 대상이 인덱스 시그니처를 가질 경우 해당 타입을 리턴
+
+```typescript
+type A = keyof B
+```
+
+## in
+
+### in 타입이란
+
+- 어떤 타입에 특정 프로퍼티가 있는지 판별하는 연산자 (true/false)
+- 유니언 타입과 함께 사용
+
+```typescript
+"foo" in bar;
+```
+
+## tpyeof
+
+### typeof 란
+
+- 자바스크립트 typeof의 확장
+- 대상의 타입을 리턴하는 연산자
+- string, number, boolean, object, symbol, bigint, function, undefined 중에서 반환
+
+
+
+## instanceOf
+
+### what is instanceOf
+
+- 자바스크릡트의 instanceof와 동일
+- 어떤 값이 다른 값의 인스턴스인지를 판별
+
+```typescript
+foo instanceof Bar;
+```
+
+## indexed access type
+
+### indexed access type
+
+- 다른 타입의 특정 프로퍼티를 참조하는 타입
+- 인덱싱 타입도 타입이기 때문에 인덱싱하는 타입에 제한은 없음(유니언, typeof 등 사용 가능)
+
+```typescript
+type Person = { name: string; age: number; isDeveloper: boolean; };
+type Name = Person["name"];
+```
+
+
+
+## Conditional Type
+
+- 조건에 따라 두 타입 중 하나를 선택
+- 삼항 연산자와 같은 형태
+
+```typescript
+SomeType extends OtherType ? IfTure : IfFalse
+```
+
+## Mapping Type
+
+- 다른 타입을 기반으로 생성하는 타입
+- 일일이 모든 프로퍼티 타입 지정을 하고싶지 않을 때 사용
+
+## Type Assertion
+
+- 어떤 타입에 대해 타입스크립트가 알지 못하는 것을 알려주는 방법
+- 타입스크립트가 인식한 타입의 더 혹은 덜 상세한 타입을 지정
+- 컴파일 과정에서만 사용되므로 런타임에는 영향 없음
+
+```typescript
+logInput(someString as "10");
+```

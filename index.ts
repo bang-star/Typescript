@@ -1,20 +1,34 @@
-interface PersonSpec {
-    name: string;
-    think: (thoughts: string) => void;
+/**
+ * Assertion
+ */
+
+// ========== EX 1 ========== //
+let someString: string = "10";
+
+function logInput(input: "10") {
+    console.log(input);
 }
 
-class Person implements PersonSpec {
+logInput(someString as "10");
+
+// ========== EX 2 ========== //
+
+interface Person {
     name: string;
-
-    constructor(name: string) {
-        this.name = name;
-    }
-
-    think(thoughts: string): void {
-        console.log(thoughts);
-    }
+    age: number;
 }
 
-const person = new Person("Kim");
+interface Developer extends Person {
+    field: string;
+}
 
-person.think("TypeScript");
+function getName(person : Person) {
+    return person.name;
+}
+
+getName({name: "Kim", age: 25, field: "FE"} as Person);
+
+// ========== EX 3 ========== //
+
+const errCase: string = "error!" as number;                 // X
+const errCase: string = "error!" as unknown as number;      // O
