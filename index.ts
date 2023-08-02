@@ -2,7 +2,7 @@
  * Module
  */
 
-import {foo, baz, someFunc} from "./d";
+import {foo, baz, someFunc} from "./a";
 
 console.log(foo)
 console.log(baz)
