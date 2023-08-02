@@ -1,19 +1,9 @@
 /**
- * Namespace
+ * Module
  */
 
-namespace Foo {
-    export let count = 10;
+import {foo, baz, someFunc} from "./a";
 
-    export function increase(val: number) {
-        count += val;
-    }
-}
-
-namespace Bar {
-    export const count = 30;
-}
-
-Foo.increase(5);
-console.log(Foo.count)
-console.log(Bar.count)
+console.log(foo)
+console.log(baz)
+console.log(someFunc)
