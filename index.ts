@@ -1,5 +1,5 @@
 /**
- * Optional Chaining
+ * Non-Null Assertion
  */
 
 type OptionalObject = {
@@ -10,20 +10,12 @@ type OptionalObject = {
     }
 }
 
-function logInputProp(input: OptionalObject) {
-    // console.log(input.foo.bar.baz);  << null or undefined 에러 발생
-
-    // Not Optional Chaining
-    if(input.foo && input.foo.bar) {
-        console.log(input.foo.bar.baz);
-    }
-
-    // Optional Chaining
-    console.log(input.foo?.bar?.baz);
+function logInputProp(input?: OptionalObject) {
+    console.log(input.foo!.bar!.baz);
 }
 
 // OK
-logInputProp({ foo: {}});
+logInputProp({ foo: {}});       // Cannot read properties of undefined 에러 발생.
 // OK
 logInputProp({
     foo: {
@@ -33,8 +25,3 @@ logInputProp({
     }
 });
 
-type MyArr = number[] | undefined;
-
-let myArr: MyArr;
-
-console.log(myArr?.length)
