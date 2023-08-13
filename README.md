@@ -715,3 +715,19 @@ logInput(someString as "10");
 
 - 대상 타입의 특정 프로퍼티들만 제외하는 유틸리티
 - Omit<Type, Keys>
+
+# Useful Tips
+
+## Optional Chaining
+
+- 복잡한 논리연산 또는 if 문 중첩을 줄여주는 방법
+
+```typescript
+if(foo && foo.bar && foo.bar.baz) {
+    // return foo.bar.baz
+    return foo?.bar?.baz
+}
+```
+
+- ?가 붙은 대상이 null/undefined 이면 해당 시점에서 undefined를 리턴
+
