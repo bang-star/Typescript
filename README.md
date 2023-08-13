@@ -695,3 +695,7 @@ logInput(someString as "10");
 
 > **Partial**, **Required**, Readonly, Record, **Pick**, **Omit**, Exclude, Extract, NonNullable, Parameters, ConstuctorParameters, ReturnType, InstanceType, ThisParameterType, OmitThisParameterType, ThisType, Uppercase, Lowercase, Capitalize, Uncapitalize
 
+## Partial
+
+- 대상 타입의 프로퍼티들을 모두 optional로 바꿔주는 유틸리티
+- Partial<Type>
