@@ -682,3 +682,16 @@ logInput(someString as "10");
 
 - 타입 정의가 많아져셔 타입만 모아두고 싶을 때
 - JS와의 호환성을 고려한 라이브러리에서 사용
+
+
+# 유틸리티 타입
+
+## 유틸리티 타입이란?
+
+- 타입스크립트가 제공하는 흔히 쓰이는 타입 변환
+- 타입스크립트 안에서 글로벌하게 사용 가능
+
+### 유틸리티 타입의 종류
+
+> **Partial**, **Required**, Readonly, Record, **Pick**, **Omit**, Exclude, Extract, NonNullable, Parameters, ConstuctorParameters, ReturnType, InstanceType, ThisParameterType, OmitThisParameterType, ThisType, Uppercase, Lowercase, Capitalize, Uncapitalize
+
