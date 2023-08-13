@@ -1,28 +1,40 @@
 /**
- * Omit
+ * Optional Chaining
  */
 
-type Developer = {
-    name: string
-    age: number
-    field: string
+type OptionalObject = {
+    foo?: {
+        bar?: {
+            baz?: string;
+        }
+    }
 }
 
-let somePerson1: Developer = {
-    name: '김개발',
-    age: 25,
-    field: 'FE'
-};
+function logInputProp(input: OptionalObject) {
+    // console.log(input.foo.bar.baz);  << null or undefined 에러 발생
 
-// X
-let somePerson2: Omit<Developer, "name" | "age"> = {
-    name: '김개발',
-    age: 25,
-    field: 'FE'
-};
+    // Not Optional Chaining
+    if(input.foo && input.foo.bar) {
+        console.log(input.foo.bar.baz);
+    }
 
-// O
-let somePerson3: Omit<Developer, "name"> = {
-    age: 25,
-    field: 'FE'
+    // Optional Chaining
+    console.log(input.foo?.bar?.baz);
 }
+
+// OK
+logInputProp({ foo: {}});
+// OK
+logInputProp({
+    foo: {
+        bar: {
+            baz: "baz!!"
+        }
+    }
+});
+
+type MyArr = number[] | undefined;
+
+let myArr: MyArr;
+
+console.log(myArr?.length)
