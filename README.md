@@ -735,3 +735,8 @@ if(foo && foo.bar && foo.bar.baz) {
 
 - 대상이 null 또는 undefined 가 아니라고 단언하는 연산자
 - null 제약조건을 일시적으로 완화(주의해서 사용해야 함!)
+
+## Nullish coalescing
+
+- 대상의 값이 null 또는 undefined 인지 확인
+- || 연산은 falsy도 false와 동일하지만, nullish coalescing은 null과 undefined만 고려
