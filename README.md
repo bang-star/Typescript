@@ -710,3 +710,8 @@ logInput(someString as "10");
 
 - 대상 타입의 특정 프로퍼티들만 가져오는 유틸리티
 - Pick<Type, Keys> --- Keys: 스트링 리터럴 또는 그 유니언
+
+## Omit
+
+- 대상 타입의 특정 프로퍼티들만 제외하는 유틸리티
+- Omit<Type, Keys>
