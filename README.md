@@ -731,3 +731,7 @@ if(foo && foo.bar && foo.bar.baz) {
 
 - ?가 붙은 대상이 null/undefined 이면 해당 시점에서 undefined를 리턴
 
+## Non-Null Assertion
+
+- 대상이 null 또는 undefined 가 아니라고 단언하는 연산자
+- null 제약조건을 일시적으로 완화(주의해서 사용해야 함!)
