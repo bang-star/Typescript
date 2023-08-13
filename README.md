@@ -715,3 +715,28 @@ logInput(someString as "10");
 
 - 대상 타입의 특정 프로퍼티들만 제외하는 유틸리티
 - Omit<Type, Keys>
+
+# Useful Tips
+
+## Optional Chaining
+
+- 복잡한 논리연산 또는 if 문 중첩을 줄여주는 방법
+
+```typescript
+if(foo && foo.bar && foo.bar.baz) {
+    // return foo.bar.baz
+    return foo?.bar?.baz
+}
+```
+
+- ?가 붙은 대상이 null/undefined 이면 해당 시점에서 undefined를 리턴
+
+## Non-Null Assertion
+
+- 대상이 null 또는 undefined 가 아니라고 단언하는 연산자
+- null 제약조건을 일시적으로 완화(주의해서 사용해야 함!)
+
+## Nullish coalescing
+
+- 대상의 값이 null 또는 undefined 인지 확인
+- || 연산은 falsy도 false와 동일하지만, nullish coalescing은 null과 undefined만 고려

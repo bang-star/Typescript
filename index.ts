@@ -1,28 +1,24 @@
 /**
- * Omit
+ * Nullish coalescing
  */
 
-type Developer = {
-    name: string
-    age: number
-    field: string
-}
+const foo = null;
+const bar = "hi!";
 
-let somePerson1: Developer = {
-    name: '김개발',
-    age: 25,
-    field: 'FE'
-};
+const baz = foo ?? bar;
 
-// X
-let somePerson2: Omit<Developer, "name" | "age"> = {
-    name: '김개발',
-    age: 25,
-    field: 'FE'
-};
+console.log(baz);   // "hi!";
 
-// O
-let somePerson3: Omit<Developer, "name"> = {
-    age: 25,
-    field: 'FE'
-}
+const coo = "oh!";
+const coz = coo ?? bar;
+console.log(coz);   // "oh!";
+
+const aoz = foo || bar;
+console.log(aoz);   // "hi!"; null 에 경우는 동일하게 동작
+
+const buz = 0;
+const boz = buz || bar;
+console.log(boz);   // "hi!";
+
+const doz = buz ?? bar; // null 과 undefined에 대해서만 검사
+console.log(doz);   // 0
