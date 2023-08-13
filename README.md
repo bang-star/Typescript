@@ -699,3 +699,9 @@ logInput(someString as "10");
 
 - 대상 타입의 프로퍼티들을 모두 optional로 바꿔주는 유틸리티
 - Partial<Type>
+
+
+## Required
+
+- 대상 타입의 프로퍼티들을 모두 필수로 바꿔주는 유틸리티
+- Require<Type>
