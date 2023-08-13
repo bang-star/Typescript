@@ -705,3 +705,8 @@ logInput(someString as "10");
 
 - 대상 타입의 프로퍼티들을 모두 필수로 바꿔주는 유틸리티
 - Require<Type>
+
+## Pick
+
+- 대상 타입의 특정 프로퍼티들만 가져오는 유틸리티
+- Pick<Type, Keys> --- Keys: 스트링 리터럴 또는 그 유니언
